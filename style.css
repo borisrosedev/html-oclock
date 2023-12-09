@@ -1,0 +1,355 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h1 {
+    font-size: 20px;
+    margin: 0;
+}
+
+h2 {
+    font-size: 18px;
+    margin: 0;
+}
+
+img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transition: all 500ms ease-in-out;
+  
+}
+
+
+
+
+
+/* LES FLEX BOX */
+body, nav,
+.landing-page___header-container, 
+.landing-page__footer-container, 
+.landing-page___main-container,
+.article__image-container, 
+.landing-page__main-container__header-container,
+.landing-page___header-container__title-container,
+.landing-page___header-container__actions-container,
+.landing-page__main-container__section-container,
+.landing-page___header-container__title-container div, 
+.landing-page__main-container__article-container{
+    display: flex;
+}
+/*FIN DES FLEX BOX*/
+
+
+
+body {
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+nav,
+.landing-page___header-container__title-container 
+{
+    list-style-type: none;
+    align-items: center;
+}
+
+nav li
+{
+    margin-inline: 10px;
+}
+
+.landing-page___header-container {
+
+    background-color: rgb(0,0,0);
+    height: 5vh;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    justify-content: space-between;
+    color: white;
+    opacity: 0;
+    animation: headerAnimation 1000ms ease-in-out forwards;
+    
+
+}
+
+.landing-page___header-container__title-container {
+    width: 50%;
+    justify-content: flex-start;
+    padding-left: 10px;
+
+}
+
+.landing-page___header-container__title-container div {
+    position: relative;
+  
+}
+.landing-page___header-container__title-container i {
+    position: absolute;
+    top: -3px;
+    right: -5px;
+    opacity: 1;
+    animation: redHatAnimation 5000ms ease-in-out forwards infinite;
+}
+
+
+.landing-page___header-container__actions-container {
+    width: 50%;
+    justify-content: flex-end;
+    opacity: 0;
+    animation: actionsAnimation 1000ms 2000ms ease-in-out forwards;
+}
+
+
+.landing-page___header-container__actions-container li i:first-of-type {
+    color: rgb(23, 236, 183);
+    opacity: 0.3;
+}
+
+
+
+.landing-page___header-container__actions-container li i:hover {
+    cursor: pointer;
+    transition: all 500ms ease-in-out;
+    transform-origin: 0%;
+    opacity: 1;
+}
+
+
+.landing-page___main-container {
+    height: 95vh;
+    margin-top: 5vh;
+    align-items: flex-start;
+    opacity: 0;
+    animation: mainAnimation 1000ms 1000ms ease-in-out forwards;
+    flex-direction: column;
+    width: 100%;
+ 
+
+
+}
+
+.landing-page__main-container__header-container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+    background-color: rgba(23, 236, 183, 0.3);
+}
+
+.landing-page__main-container__header-container :not(h1){
+    font-style: italic;
+    margin: 10px 0;
+    font-weight: 400;
+    font-family: Times, 'Times New Roman', serif
+}
+
+.landing-page__main-container__section-container {
+
+    flex-direction:row;
+    justify-content: space-evenly;
+    margin: auto;
+
+}
+
+.landing-page__main-container__article-container {
+
+    flex-direction: column;
+    height: 400px;
+    border-radius: 25px;
+    width: 40%;
+    box-shadow: 1px 1px 10px black;
+    opacity: 0;
+    transition: all 500ms ease-in-out;
+    border: solid  white 4px;
+}
+
+
+
+.landing-page__main-container__article-container--left-animation {
+    animation: leftArticleAnimation 1000ms 3000ms ease-in-out forwards;
+  
+    
+}
+
+.landing-page__main-container__article-container--left-animation:hover + article {
+    transform: translateX(100px);
+    background-color: rgb(255, 255, 255);
+
+}
+
+.landing-page__main-container__article-container:hover {
+    border: solid  rgba(23, 236, 183, 0.3) 4px;
+    background-color: rgba(20, 175, 149, 0.1);
+}
+
+
+
+
+.landing-page__main-container__article-container--right-animation {
+    animation: rightArticleAnimation 1000ms  3000ms ease-in-out forwards;
+}
+
+.article__message-container {
+
+    padding: 0 10px;
+}
+
+.article__image-container {
+ 
+    height: 60%;
+ 
+
+    
+}
+
+.article__image-container--images-container {
+    overflow-y: scroll;
+}
+
+
+
+.article__image-container--images-container img {
+    margin: 0 20px;
+}
+
+
+  
+
+.article__button-container {
+    margin: auto;
+}
+
+.article__button-container button {
+    border: none;
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px black;
+
+
+}
+
+.article__button-container i {
+    transition: all 500ms ease-in-out;
+}
+.article__button-container button:hover > i {
+    color: rgb(23, 236, 183);
+}
+
+.article__button-container span {
+    margin-left: 5px;
+}
+
+
+.article__button-container button:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 10px black;
+}
+
+.landing-page__footer-container {
+
+}
+
+
+@keyframes redHatAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) rotate(360deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes headerAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(-100px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes actionsAnimation {
+    from {
+        opacity: 0;
+        transform: translateX(100px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes mainAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(-100px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes leftArticleAnimation {
+    from {
+        opacity: 0;
+        transform: translateX(-300px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+@keyframes rightArticleAnimation {
+    from {
+        opacity: 0;
+        transform: translateX(300px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/*MEDIA QUERIES*/
+
+@media (0 <= width <= 414px){
+
+    body {
+        height: 100%;
+    }
+    .landing-page__main-container__section-container{
+        flex-direction: column;
+        width: 100%;
+        margin: unset;
+        align-items: center;
+    }
+
+    .landing-page__main-container__article-container{
+        width: 96%;
+        margin: 20px 0;
+    }
+}
